@@ -27,15 +27,15 @@ class Window < Gosu::Window
   	  glMatrixMode(GL_MODELVIEW) # see 02
       glLoadIdentity # see 02
       
-      glTranslatef(-2, 0.0, -10.0) # see 02
+      glTranslatef(-2, 0, -10) # see 02
 
       glBegin(GL_TRIANGLES) # see 02
-          glColor3f(1.0, 0.0, 0.0) # sets color to be used using RBG
-          glVertex3f( 0.0,1.0, 0.0)
-          glColor3f(0.0, 1.0, 0.0)
-          glVertex3f( 1.0, -1.0, 0.0)
-          glColor3f(0.0, 0.0, 1.0)
-          glVertex3f(-1.0, -1.0, 0.0)
+          glColor3f(1, 0, 0) # sets color to be used using RBG
+          glVertex3f( 0,1, 0)
+          glColor3f(0, 1, 0)
+          glVertex3f( 1, -1, 0)
+          glColor3f(0, 0, 1)
+          glVertex3f(-1, -1, 0)
       glEnd
     end
   end

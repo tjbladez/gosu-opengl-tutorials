@@ -31,12 +31,12 @@ class Window < Gosu::Window
       glLoadIdentity
       
       # Think 3-d coordinate system (x,y,z). +- on each movies on that axis
-      glTranslatef(-2, 0.0, -10.0) # Moving function from the current point by x,y,z change
+      glTranslatef(-2, 0, -10) # Moving function from the current point by x,y,z change
 
       glBegin(GL_TRIANGLES) #Begin drawing a figure.
-          glVertex3f( 0.0,  1.0, 0.0) #place a point at (x,y,z) location from the current point
-          glVertex3f( 1.0, -1.0, 0.0)
-          glVertex3f(-1.0, -1.0, 0.0)
+          glVertex3f( 0,  1, 0) #place a point at (x,y,z) location from the current point
+          glVertex3f( 1, -1, 0)
+          glVertex3f(-1, -1, 0)
       glEnd
     end
   end
