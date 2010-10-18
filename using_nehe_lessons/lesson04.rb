@@ -11,7 +11,7 @@ class Window < Gosu::Window
   
   def initialize
     super(800, 600, false)
-    self.caption = "Lesson #2 - Triangle"
+    self.caption = "Lesson #4 - Rotation animation"
     @rotation_angle = 0
   end
   

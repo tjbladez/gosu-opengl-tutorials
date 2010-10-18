@@ -9,7 +9,7 @@ include Glu
 class Window < Gosu::Window
   def initialize
     super(800, 600, false)
-    self.caption = "Lesson #2 - Triangle"
+    self.caption = "Lesson #3 - Adding colors"
   end
   
   def update
