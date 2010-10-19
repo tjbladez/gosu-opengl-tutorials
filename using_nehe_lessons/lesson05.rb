@@ -21,21 +21,21 @@ class Window < Gosu::Window
   
   def draw
     gl do
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # see 02
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # see lesson01
 
-      glMatrixMode(GL_PROJECTION) # see 02 
-      glLoadIdentity  # see 02
+      glMatrixMode(GL_PROJECTION) # see lesson01 
+      glLoadIdentity  # see lesson01
 
-      gluPerspective(45.0, width / height, 0.1, 100.0) # see 02
+      gluPerspective(45.0, width / height, 0.1, 100.0) # see lesson01
       
-  	  glMatrixMode(GL_MODELVIEW) # see 02
-      glLoadIdentity # see 02
+  	  glMatrixMode(GL_MODELVIEW) # see lesson01
+      glLoadIdentity # see lesson01
       
-      glTranslatef(0, 0, -7) # see 02
+      glTranslatef(0, 0, -7) # see lesson01
 
-      glRotatef(@rotation_angle, 0.0, 1.0, 0.0) # see 04
+      glRotatef(@rotation_angle, 0.0, 1.0, 0.0) # see nehe04
       
-      glBegin(GL_TRIANGLES) # see 02
+      glBegin(GL_TRIANGLES) # see lesson01
           glColor3f(1, 0, 0)
           glVertex3f( 0,  1, 0)
           glColor3f(0, 1, 0)

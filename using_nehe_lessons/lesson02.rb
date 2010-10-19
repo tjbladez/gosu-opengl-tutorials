@@ -17,24 +17,17 @@ class Window < Gosu::Window
   
   def draw
     gl do
-      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # Clear The Screen And The Depth Buffer
-
-      #glMatrixMode(matrix) indicates that following [matrix] is going to get used
-
-      glMatrixMode(GL_PROJECTION) # The projection matrix is responsible for adding perspective to our scene. 
-      glLoadIdentity  # Resets current modelview matrix
-
-      # Calculates aspect ratio of the window. Gets perspective  view. 45 is degree viewing angle, (0.1, 100) are ranges how deep can we draw into the screen
-      gluPerspective(45.0, width / height, 0.1, 100.0) 
+      glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # see lesson01
+      glMatrixMode(GL_PROJECTION) # see lesson01 
+      glLoadIdentity  # see lesson01
+      gluPerspective(45.0, width / height, 0.1, 100.0) # see lesson01
+  	  glMatrixMode(GL_MODELVIEW) # see lesson01
+      glLoadIdentity # see lesson01
       
-  	  glMatrixMode(GL_MODELVIEW) # The modelview matrix is where object information is stored.
-      glLoadIdentity
-      
-      # Think 3-d coordinate system (x,y,z). +- on each movies on that axis
-      glTranslatef(-2, 0, -10) # Moving function from the current point by x,y,z change
+      glTranslatef(-2, 0, -10) # see lesson01
 
-      glBegin(GL_TRIANGLES) #Begin drawing a figure.
-          glVertex3f( 0,  1, 0) #place a point at (x,y,z) location from the current point
+      glBegin(GL_TRIANGLES) # see lesson01
+          glVertex3f( 0,  1, 0) # see lesson01
           glVertex3f( 1, -1, 0)
           glVertex3f(-1, -1, 0)
       glEnd
