@@ -14,8 +14,7 @@ class Texture
   end
 end
 class Window < Gosu::Window
-  attr_accessor :rotation_angle
-  
+
   def initialize
     super(800, 600, false)
     self.caption = "Lesson #6 - Texture Mapping"
