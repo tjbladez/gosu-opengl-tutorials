@@ -59,8 +59,6 @@ class Window < Gosu::Window
   end
 
   def update
-    @light_on = !@light_on if button_down? Gosu::Button::KbL # switch light on or off is L is pressed
-    change_filter! if button_down? Gosu::Button::KbF # change filter if F is pressed
     @z_depth -= 0.2 if button_down? Gosu::Button::KbPageUp
     @z_depth += 0.2 if button_down? Gosu::Button::KbPageDown
     @x_change -= 0.01 if button_down? Gosu::Button::KbUp
@@ -153,8 +151,10 @@ class Window < Gosu::Window
   end
 
   def button_down(id)
-    if id == Gosu::KbEscape
-      close
+    case id
+    when Gosu::Button::KbEscape then close
+    when Gosu::Button::KbL then @light_on = !@light_on # switch light on or off is L is pressed
+    when Gosu::Button::KbF then change_filter! # change filter if F is pressed
     end
   end
 end
