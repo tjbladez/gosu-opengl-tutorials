@@ -38,17 +38,17 @@ class Window < Gosu::Window
   def initialize_textures
     gl do
       nearest = Texture.new(self)
-    	glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name); # see lesson 1
+    	glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name) # see lesson 1
   		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # see nehe07
   		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST) # see nehe07
 
   		linear = Texture.new(self)
-  		glBindTexture(GL_TEXTURE_2D, linear.info.tex_name);
+  		glBindTexture(GL_TEXTURE_2D, linear.info.tex_name)
   		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR) # see nehe06
   		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 
   		minimap = Texture.new(self)
-  		glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name);
+  		glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name)
   		texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT) # see nehe07
   		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
 
