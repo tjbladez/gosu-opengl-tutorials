@@ -98,27 +98,28 @@ class Window < Gosu::Window
         add_perspective_to_scene
 
         glMatrixMode(GL_MODELVIEW)  #see lesson 01
-        glLoadIdentity #see lesson 01
-        glTranslatef(0, 0, @zoom)
-    		glRotatef(@tilt, 1, 0, 0)
+        glLoadIdentity              #see lesson 01
 
-        glRotatef(star.angle, 0, 1, 0)
-    		glTranslatef(star.distance, 0, 0)
+        glTranslatef(0, 0, @zoom)   #see lesson 01
 
+    		glRotatef(@tilt, 1, 0, 0)   # rotate it by x direction
+        glRotatef(star.angle, 0, 1, 0) # rotate it by y direction
+    		glTranslatef(star.distance, 0, 0) # move on the x direction
+
+        # since we are using a flat texture we want it always look flat and correct regardless how much spinning and rotation are we doing. We
+        # can archive that by canceling the rotations that we are doing before we draw our stars. IMPORTANT: Cancellation by happen in the reverse order
         glRotatef(-star.angle, 0, 1, 0)
     		glRotatef(-@tilt, 1, 0, 0)
 
-    		if (@twinkle_on)
-          draw_star(@stars[(@stars.size-i-1)])
-    		end
+    		draw_star(@stars[rand(@stars.size)]) if @twinkle_on # we make star swinkle by drawing another random non spinning star on the bottom of it
 
-    		glRotatef(@spin,0,0,1)
+    		glRotatef(@spin,0,0,1) #spin the star on z axis
         draw_star(star)
 
-        star.angle += i.to_f / STAR_NUMBER
-        star.distance -= 0.01
+        star.angle += i.to_f / @stars.size # increase the angle for next frame
+        star.distance -= 0.01 # move stars to closer and closer to the center
 
-        if (star.distance < 0)
+        if (star.distance < 0) # if it reaches center, restart its distance and reset the color
     			star.distance += 5
           star.color_randomly
     		end
