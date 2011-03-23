@@ -14,3 +14,13 @@
  * Install gems via `bundle install`
  * Run lessons via `bundle exec ruby <pathtolesson>`
 
+### Implemented so far ###
+ * lesson01 - texture loading
+ * lesson02 - polygons
+ * lesson03 - adding colors
+ * lesson04 - rotation animation
+ * lesson05 - 3D shapes
+ * lesson06 - texture mapping
+ * lesson07 - texture filters, lighting and keyboard control
+ * lesson08 - texture blending, transparency
+ * lesson09 - moving bitmaps in 3D space
