@@ -37,24 +37,24 @@ class Window < Gosu::Window
   def initialize_textures
     gl do
       nearest = Texture.new(self)
-    	glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name); # see lesson 1
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # Nearest filter is the worst on quality
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST) # but fastest and lowest need for processing power
+      glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name); # see lesson 1
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # Nearest filter is the worst on quality
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST) # but fastest and lowest need for processing power
 
-  		linear = Texture.new(self)
-  		glBindTexture(GL_TEXTURE_2D, linear.info.tex_name);
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR) # Linear filter, good quality - high demands see nehe06
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
+      linear = Texture.new(self)
+      glBindTexture(GL_TEXTURE_2D, linear.info.tex_name);
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR) # Linear filter, good quality - high demands see nehe06
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 
-  		minimap = Texture.new(self)
-  		glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name);
-  		texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT) #use texture data to get data for buildimg a mipmap
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
-  		# Mipmapping. OpenGL tried to build different sized high quality texture. When you draw it OpenGL will select the best
-  		# looking texture from ones it built and draw that instead of resizing the original image which can cause detail loss
-  		glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST)
-  		gluBuild2DMipmaps(GL_TEXTURE_2D, 3, 128, 128, GL_RGB, GL_FLOAT, texture) # building mipmaps
-  		@filters = [nearest.info.tex_name, linear.info.tex_name, minimap.info.tex_name]
+      minimap = Texture.new(self)
+      glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name);
+      texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT) #use texture data to get data for buildimg a mipmap
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
+      # Mipmapping. OpenGL tried to build different sized high quality texture. When you draw it OpenGL will select the best
+      # looking texture from ones it built and draw that instead of resizing the original image which can cause detail loss
+      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST)
+      gluBuild2DMipmaps(GL_TEXTURE_2D, 3, 128, 128, GL_RGB, GL_FLOAT, texture) # building mipmaps
+      @filters = [nearest.info.tex_name, linear.info.tex_name, minimap.info.tex_name]
 	  end
   end
 

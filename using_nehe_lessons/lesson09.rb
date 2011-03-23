@@ -73,16 +73,16 @@ class Window < Gosu::Window
   # see lesson 01 and nehe02
   def init_scene
     glEnable(GL_TEXTURE_2D)
-  	glShadeModel(GL_SMOOTH)
+    glShadeModel(GL_SMOOTH)
     glClearColor(0,0,0,0.5)
     glClearDepth(1)
-  	glBlendFunc(GL_SRC_ALPHA,GL_ONE) #see nehe08
-  	glEnable(GL_BLEND)
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE) #see nehe08
+    glEnable(GL_BLEND)
 	end
 
-	# see lesson 01
-	def add_perspective_to_scene
-	  glMatrixMode(GL_PROJECTION)
+  # see lesson 01
+  def add_perspective_to_scene
+    glMatrixMode(GL_PROJECTION)
     glLoadIdentity
     gluPerspective(45.0, width / height, 0.1, 100.0)
     glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST) #see nehe07
@@ -102,28 +102,28 @@ class Window < Gosu::Window
 
         glTranslatef(0, 0, @zoom)   #see lesson 01
 
-    		glRotatef(@tilt, 1, 0, 0)   # rotate it by x direction
+        glRotatef(@tilt, 1, 0, 0)   # rotate it by x direction
         glRotatef(star.angle, 0, 1, 0) # rotate it by y direction
-    		glTranslatef(star.distance, 0, 0) # move on the x direction
+        glTranslatef(star.distance, 0, 0) # move on the x direction
 
         # since we are using a flat texture we want it always look flat and correct regardless how much spinning and rotation are we doing. We
         # can archive that by canceling the rotations that we are doing before we draw our stars. IMPORTANT: Cancellation by happen in the reverse order
         glRotatef(-star.angle, 0, 1, 0)
-    		glRotatef(-@tilt, 1, 0, 0)
+        glRotatef(-@tilt, 1, 0, 0)
 
-    		draw_star(@stars[rand(@stars.size)]) if @twinkle_on # we make star swinkle by drawing another random non spinning star on the bottom of it
+        draw_star(@stars[rand(@stars.size)]) if @twinkle_on # we make star swinkle by drawing another random non spinning star on the bottom of it
 
-    		glRotatef(@spin,0,0,1) #spin the star on z axis
+        glRotatef(@spin,0,0,1) #spin the star on z axis
         draw_star(star)
 
         star.angle += i.to_f / @stars.size # increase the angle for next frame
         star.distance -= 0.01 # move stars to closer and closer to the center
 
         if (star.distance < 0) # if it reaches center, restart its distance and reset the color
-    			star.distance += 5
+          star.distance += 5
           star.color_randomly
-    		end
-  	  end
+        end
+      end
     end
   end
 
