@@ -1,11 +1,4 @@
-require 'rubygems'
-require 'gosu'
-require 'gl'
-require 'glu'
-require 'glut'
-
-include Gl
-include Glu
+require File.expand_path('../../config/boot', __FILE__)
 
 class Window < Gosu::Window
   def initialize
