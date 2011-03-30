@@ -3,6 +3,7 @@ GEM
   specs:
     archive-tar-minitar (0.5.2)
     gosu (0.7.27.1)
+    linecache (0.43)
     linecache19 (0.5.11)
       ruby_core_source (>= 0.1.4)
     mkrf (0.2.3)
@@ -18,5 +19,6 @@ PLATFORMS
 
 DEPENDENCIES
   gosu
+  linecache
   linecache19
   ruby-opengl
