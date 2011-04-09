@@ -12,8 +12,8 @@ class Window < Gosu::Window
   def initialize
     super(800, 600, false)
     self.caption = "Lesson #6 - Texture Mapping"
-    texture = Texture.new(self)
-    @texture_info = texture.info
+    @texture = Texture.new(self)
+    @texture_info = @texture.info
     @x_angle = @y_angle = @z_angle = 0
   end
 

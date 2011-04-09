@@ -30,26 +30,24 @@ class Window < Gosu::Window
   end
 
   def initialize_textures
-    gl do
-      nearest = Texture.new(self)
-      glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name) # see lesson 1
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # see nehe07
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST) # see nehe07
+    @nearest = Texture.new(self)
+    glBindTexture(GL_TEXTURE_2D, @nearest.info.tex_name) # see lesson 1
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # see nehe07
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST) # see nehe07
 
-      linear = Texture.new(self)
-      glBindTexture(GL_TEXTURE_2D, linear.info.tex_name)
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR) # see nehe06
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
+    @linear = Texture.new(self)
+    glBindTexture(GL_TEXTURE_2D, @linear.info.tex_name)
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR) # see nehe06
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 
-      minimap = Texture.new(self)
-      glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name)
-      texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT) # see nehe07
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
+    @minimap = Texture.new(self)
+    glBindTexture(GL_TEXTURE_2D, @minimap.info.tex_name)
+    texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT) # see nehe07
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
 
-      glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST) # see nehe07
-      gluBuild2DMipmaps(GL_TEXTURE_2D, 3, 128, 128, GL_RGB, GL_FLOAT, texture) # see nehe07
-      @filters = [nearest.info.tex_name, linear.info.tex_name, minimap.info.tex_name]
-	  end
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST) # see nehe07
+    gluBuild2DMipmaps(GL_TEXTURE_2D, 3, 128, 128, GL_RGB, GL_FLOAT, texture) # see nehe07
+    @filters = [@nearest.info.tex_name, @linear.info.tex_name, @minimap.info.tex_name]
   end
 
   def update
