@@ -24,3 +24,4 @@
  * lesson07 - texture filters, lighting and keyboard control
  * lesson08 - texture blending, transparency
  * lesson09 - moving bitmaps in 3D space
+ * lesson10 - loading and moving through 3D World

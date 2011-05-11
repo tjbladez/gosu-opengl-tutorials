@@ -3,7 +3,6 @@ require 'json'
 require 'gl'
 require 'glu'
 require 'glut'
-require 'ruby-debug'
 include Gl
 include Glu
 
@@ -44,6 +43,7 @@ class Window < Gosu::Window
     init_lights
     init_textures
   end
+
   def setup_world
     triangle_data = JSON.parse(File.read('resources/nehe/lesson10/world.json'))
     @triangles = triangle_data.inject([]) do |acc, vertexes|
