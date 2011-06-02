@@ -30,6 +30,7 @@ class Window < Gosu::Window
   end
 
   def initialize_textures
+    glGetError
     @nearest = Texture.new(self)
     glBindTexture(GL_TEXTURE_2D, @nearest.info.tex_name) # see lesson 1
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST) # see nehe07

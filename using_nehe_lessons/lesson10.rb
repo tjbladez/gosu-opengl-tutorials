@@ -72,6 +72,7 @@ class Window < Gosu::Window
   end
   def init_textures
      # see nehe07 for details on how filters work
+    glGetError
     @nearest = Texture.new(self)
     glBindTexture(GL_TEXTURE_2D, @nearest.info.tex_name)
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST)

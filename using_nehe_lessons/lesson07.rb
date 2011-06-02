@@ -29,6 +29,7 @@ class Window < Gosu::Window
   end
 
   def initialize_textures
+    glGetError
     #note that window needs to keep texture variables and not just tex_name which is a fixnum in order to
     #reference texture and prevent it collected by the GC
     @nearest = Texture.new(self)

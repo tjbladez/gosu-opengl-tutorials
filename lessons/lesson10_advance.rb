@@ -105,6 +105,7 @@ class Window < Gosu::Window
   def init_textures
     @filter_index = 0
     @filters = {}
+    glGetError
     @all_meshes.keys.each do |name|
       nearest = Texture.new(self, name)
       glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name)
