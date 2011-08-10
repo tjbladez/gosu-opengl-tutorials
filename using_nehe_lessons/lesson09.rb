@@ -22,7 +22,7 @@ class Window < Gosu::Window
   def initialize
     super(800, 600, false)
     self.caption = "Lesson #9 - Moving bitmaps in 3D space"
-		@texture = Texture.new(self)
+    @texture = Texture.new(self)
     initialize_defaults
     initialize_stars
   end
@@ -55,13 +55,13 @@ class Window < Gosu::Window
 
   def draw_star(star)
     red, green, blue = * star.colors
-		glColor4ub(red, green, blue, 255)
-		glBegin(GL_QUADS)
-			glTexCoord2f(0, 0); glVertex3f(-1,-1, 0)
-			glTexCoord2f(1, 0); glVertex3f( 1,-1, 0)
-			glTexCoord2f(1, 1); glVertex3f( 1, 1, 0)
-			glTexCoord2f(0, 1); glVertex3f(-1, 1, 0)
-		glEnd
+    glColor4ub(red, green, blue, 255)
+    glBegin(GL_QUADS)
+      glTexCoord2f(0, 0); glVertex3f(-1,-1, 0)
+      glTexCoord2f(1, 0); glVertex3f( 1,-1, 0)
+      glTexCoord2f(1, 1); glVertex3f( 1, 1, 0)
+      glTexCoord2f(0, 1); glVertex3f(-1, 1, 0)
+    glEnd
   end
 
   # see lesson 01 and nehe02
@@ -72,7 +72,7 @@ class Window < Gosu::Window
     glClearDepth(1)
     glBlendFunc(GL_SRC_ALPHA,GL_ONE) #see nehe08
     glEnable(GL_BLEND)
-	end
+  end
 
   # see lesson 01
   def add_perspective_to_scene
