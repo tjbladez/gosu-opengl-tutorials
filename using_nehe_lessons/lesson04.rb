@@ -18,7 +18,7 @@ class Window < Gosu::Window
       glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT) # see lesson01
 
       glMatrixMode(GL_PROJECTION) # see lesson01
-      glLoadIdentity  #
+      glLoadIdentity
 
       gluPerspective(45.0, width / height, 0.1, 100.0) # see lesson01
 
@@ -30,20 +30,18 @@ class Window < Gosu::Window
       glRotatef(@rotation_angle, 0, 1, 0) # rotate object around vector set by traveling to x,y,z from current unit, angle is in degrees
 
       glBegin(GL_TRIANGLES) # see lesson01
-          glColor3f(1, 0, 0) #  see nehe03
-          glVertex3f( 0,1, 0)
-          glColor3f(0, 1, 0)
-          glVertex3f( 1, -1, 0)
-          glColor3f(0, 0, 1)
-          glVertex3f(-1, -1, 0)
+        glColor3f(1, 0, 0) #  see nehe03
+        glVertex3f( 0,1, 0)
+        glColor3f(0, 1, 0)
+        glVertex3f( 1, -1, 0)
+        glColor3f(0, 0, 1)
+        glVertex3f(-1, -1, 0)
       glEnd
     end
   end
 
   def button_down(id)
-    if id == Gosu::KbEscape
-      close
-    end
+    close if id == Gosu::KbEscape
   end
 end
 
