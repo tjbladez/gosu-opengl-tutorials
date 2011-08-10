@@ -1,8 +1,11 @@
-# This is lesson to make sure nehe/lesson10 is fully understood, certain decisions in nehe/lesson 10 could be
-# argueable: use of the meshes, less than optimal data point map, interesting choice of lighting source coordinates, only 1 type of textures
-# Here we will create 2 connecting rooms like this, each with own set of textures. We will only use knowledge learned up and including to lesson10.
+# This lesson wants to make sure that nehe/lesson10 is fully understood,
+# certain decisions in nehe/lesson 10 could be argueable: use of the meshes,
+# less than optimal data point map, interesting choice of lighting source
+# coordinates, only 1 type of textures. Here we will create 2 connecting
+# rooms (diagram below) each with its own set of textures. We will only use
+# knowledge learned up and including to lesson10.
 #
-# We will also provide better movement controls:
+# We will also provide the following movement control:
 #  Up    - move forward
 #  Down  - move back
 #  Left  - turn left
