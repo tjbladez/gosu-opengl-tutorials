@@ -16,5 +16,6 @@ PLATFORMS
 DEPENDENCIES
   gosu
   json
+  mkrf
   ruby-opengl
   ruby-opengl2
