@@ -1,6 +1,8 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    glu (8.2.0)
+    glut (8.2.0)
     gosu (0.7.50)
     json (1.8.1)
     opengl (0.9.0)
@@ -11,6 +13,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  glu
+  glut
   gosu
   json
   ruby-opengl
