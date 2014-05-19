@@ -1,21 +1,20 @@
 GEM
-  remote: http://rubygems.org/
+  remote: https://rubygems.org/
   specs:
-    gosu (0.7.29)
-    json (1.5.1)
-    mkrf (0.2.3)
-    rake (0.9.2.2)
-    ruby-opengl (0.60.1)
-      mkrf (>= 0.2.0)
-      rake
-    ruby-opengl2 (0.60.3)
+    glu (8.2.0)
+    glut (8.2.0)
+    gosu (0.7.50)
+    json (1.8.1)
+    opengl (0.9.0)
+    ruby-opengl (0.61.0)
+      opengl
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
+  glu
+  glut
   gosu
   json
-  mkrf
   ruby-opengl
-  ruby-opengl2
