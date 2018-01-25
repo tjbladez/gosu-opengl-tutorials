@@ -41,15 +41,15 @@ require 'glut'
 include Gl
 include Glu
 
-class Texture
+class TjTexture
   attr_accessor :info, :image
   def initialize(window, name)
-    @image = Gosu::Image.new(window, "resources/tj/lesson10_advance/#{name}.jpg", true)
+    @image = Gosu::Image.new("resources/tj/lesson10_advance/#{name}.jpg", {tileable: true})
     @info = @image.gl_tex_info
   end
 end
 
-class Vertex
+class TjVertex
   attr_reader :x, :y, :z, :u, :v
 
   def initialize(coords)
@@ -59,7 +59,7 @@ class Vertex
   end
 end
 
-class Mesh
+class TjMesh
   attr_accessor :vertexes
   def initialize
     @vertexes = []
@@ -82,9 +82,9 @@ class Window < Gosu::Window
     world = JSON.parse(File.read('resources/tj/lesson10_advance/world.json'))
     @all_meshes = world.inject({}) do |acc, mesh_array|
       acc[mesh_array.first] = mesh_array.last.map do |vertexes|
-        Mesh.new.tap do |mesh|
+        TjMesh.new.tap do |mesh|
           vertexes.each do |vertex|
-            mesh.vertexes << Vertex.new(vertex)
+            mesh.vertexes << TjVertex.new(vertex)
           end
         end
       end
@@ -105,22 +105,23 @@ class Window < Gosu::Window
     @diffuse_light = [1, 1, 1, 1]
     @light_postion = [0, 0, 2, 1]
   end
+
   def init_textures
     @filter_index = 0
     @filters = {}
     glGetError
     @all_meshes.keys.each do |name|
-      nearest = Texture.new(self, name)
+      nearest = TjTexture.new(self, name)
       glBindTexture(GL_TEXTURE_2D, nearest.info.tex_name)
       glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_NEAREST)
       glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_NEAREST)
 
-      linear = Texture.new(self, name)
+      linear = TjTexture.new(self, name)
       glBindTexture(GL_TEXTURE_2D, linear.info.tex_name)
       glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)
       glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 
-      minimap = Texture.new(self, name)
+      minimap = TjTexture.new(self, name)
       glBindTexture(GL_TEXTURE_2D, minimap.info.tex_name)
       texture = glGetTexImage(GL_TEXTURE_2D, 0, GL_RGB, GL_FLOAT)
       glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR)

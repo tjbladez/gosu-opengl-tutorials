@@ -1,7 +1,8 @@
 source "https://rubygems.org"
 
-gem "gosu"
-gem "ruby-opengl"
-gem "glu"
-gem "glut"
-gem "json"
+gem "gosu", "0.13.2"
+gem "opengl", "0.10.0"
+gem "ruby-opengl", "0.61.0"
+gem "glu", "8.3.0"
+gem "glut", "8.3.0"
+gem "json", "2.1.0"
