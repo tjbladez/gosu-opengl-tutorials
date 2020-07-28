@@ -4,7 +4,7 @@ GEM
     glu (8.3.0)
     glut (8.3.0)
     gosu (0.13.2)
-    json (2.1.0)
+    json (2.3.0)
     opengl (0.10.0)
     ruby-opengl (0.61.0)
       opengl
@@ -16,7 +16,7 @@ DEPENDENCIES
   glu (= 8.3.0)
   glut (= 8.3.0)
   gosu (= 0.13.2)
-  json (= 2.1.0)
+  json (= 2.3.0)
   opengl (= 0.10.0)
   ruby-opengl (= 0.61.0)
 
